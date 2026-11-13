@@ -1,0 +1,7 @@
+**
+!custom_components/
+!custom_components/hksv/
+!custom_components/hksv/**
+!tests/
+!tests/homeassistant/
+!tests/homeassistant/run.py

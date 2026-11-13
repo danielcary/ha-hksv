@@ -1,0 +1,17 @@
+node_modules/
+dist/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+coverage/
+.env
+.env.*
+!.env.example
+/data/
+*.log
+*-pairing.svg
+artifacts/
+.DS_Store
+/*_chat_export.txt

@@ -1,0 +1,43 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure a camera",
+        "description": "Connect an RTSP camera, or enter test://pattern as the video URL to try the bridge without a camera. This is an experimental build.",
+        "data": {
+          "engine_url": "Engine URL",
+          "api_token": "Engine API token",
+          "camera_id": "Camera ID (lowercase letters, digits, underscores or hyphens)",
+          "name": "Camera name",
+          "rtsp_url": "Video URL (RTSP URL or test://pattern)",
+          "audio": "Forward camera microphone audio",
+          "software_motion": "Detect motion in the camera video",
+          "max_resolution": "Maximum Apple Home resolution",
+          "motion_entity": "Motion sensor"
+        }
+      },
+      "pair": {
+        "title": "Pair with Apple Home",
+        "description": "In Apple Home, choose Add Accessory \u2192 More Options, select this camera and enter {pairing_code}. You can also pair later. HomeKit Secure Video requires your compatible Home hub and iCloud+ plan. Submit to finish the Home Assistant setup."
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect or authenticate to the engine. Check the URL, token and camera settings.",
+      "invalid_config": "Invalid configuration or unsupported engine."
+    },
+    "abort": {
+      "already_configured": "This camera is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Camera video quality",
+        "description": "Set the maximum resolution for live view and recordings. The camera's RTSP feed determines the detail available.",
+        "data": {
+          "max_resolution": "Maximum Apple Home resolution"
+        }
+      }
+    }
+  }
+}

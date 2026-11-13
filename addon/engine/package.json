@@ -1,0 +1,26 @@
+{
+  "name": "ha-hksv-engine",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "control": "node scripts/control.mjs",
+    "native": "node scripts/native.mjs"
+  },
+  "dependencies": {
+    "@homebridge/hap-nodejs": "^2.0.0",
+    "qrcode": "^1.5.4",
+    "werift-rtp": "0.8.9"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/qrcode": "^1.5.6",
+    "typescript": "^5.9.0"
+  }
+}
