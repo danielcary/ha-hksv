@@ -15,25 +15,39 @@ You need Home Assistant OS on **64-bit ARM (`aarch64`) or x86-64 (`amd64`)**, an
 an Apple Home setup on the local network. Recording requires a compatible Apple
 home hub and iCloud+. [Apple's HKSV setup guide](https://support.apple.com/guide/icloud/mm7c90d21583/icloud)
 
-1. Download this repository. Copy the contents of `addon/` into a folder named
-   `hksv_engine` in Home Assistant's local apps folder. In Samba this is the
-   `local_apps` share, and in Terminal & SSH it is `/local_apps` on current
-   releases. Older releases may use `addons` or `/addons`. The folder should
-   contain `hksv_engine/config.yaml`, `hksv_engine/Dockerfile`, and
-   `hksv_engine/engine/`. [Home Assistant's local app guide](https://contributors.home-assistant.io/apps/first-app/)
-2. Open **Settings → Apps → Install app**. In the store menu, choose **Check for
-   updates**, then install **HA HKSV Engine (Development)** under **Local apps**.
-   Older Home Assistant releases call these **Add-ons**.
-3. In the engine app's **Configuration** tab, set `api_token` to a random value
+### Install the engine from the repository URL
+
+[![Add the HA HKSV repository to Home Assistant](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fdanielcary%2Fha-hksv)
+
+1. In Home Assistant, open **Settings → Apps → Install app → ⋮ → Repositories**.
+   Older releases call **Apps** **Add-ons**.
+2. Paste `https://github.com/danielcary/ha-hksv` and select **Add**.
+3. Under **HA HKSV** in the app store, select **HA HKSV Engine (Development)**
+   and choose **Install**. Home Assistant builds the engine on your device.
+4. In the engine app's **Configuration** tab, set `api_token` to a random value
    of at least 32 characters. For example, generate one with
    `openssl rand -hex 32`. Save and start the app. If startup fails, check its
    **Log** tab.
-4. Copy `custom_components/hksv/` to `/config/custom_components/hksv/` on Home
-   Assistant and restart Home Assistant. Open **Settings → Devices & services →
-   Add integration** and select **HA HKSV Bridge (Development)**.
-5. Enter `http://127.0.0.1:8099` as the **Engine URL** and paste the same token.
+
+### Install the Home Assistant integration
+
+The repository URL installs the engine app. The integration is a separate step.
+
+1. Download this repository and copy `custom_components/hksv/` to
+   `/config/custom_components/hksv/` on Home Assistant. Restart Home Assistant.
+2. Open **Settings → Devices & services → Add integration** and select
+   **HA HKSV Bridge (Development)**.
+3. Enter `http://127.0.0.1:8099` as the **Engine URL** and paste the same token.
    Give the camera a unique ID (for example, `front-camera`) and a display name.
    Enter its full RTSP URL or use `test://pattern` to try it without a camera.
+
+### Manual engine installation
+
+To install the engine from a downloaded copy, put the contents of `addon/` in an
+`hksv_engine` folder under Home Assistant's local apps folder (`/local_apps` on
+current releases, `/addons` on older releases). In the app store menu, choose
+**Check for updates**, then install the engine from **Local apps** and configure
+its token as above. [Home Assistant's local app guide](https://contributors.home-assistant.io/apps/first-app/)
 
 ## Set up the camera in Apple Home
 
